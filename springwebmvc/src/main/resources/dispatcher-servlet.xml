@@ -8,15 +8,15 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-    <context:component-scan base-package="com.zxc.web.controller"/>
+    <context:component-scan base-package="com.zxc.web"/>
 
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
 
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-        p:prefix="/WEB-INF/"
-        p:suffix=".jsp"
-        p:viewClass="org.springframework.web.servlet.view.JstlView"/>
+    <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"-->
+        <!--p:prefix="/WEB-INF/"-->
+        <!--p:suffix=".jsp"-->
+        <!--p:viewClass="org.springframework.web.servlet.view.JstlView"/>-->
 
 </beans>
