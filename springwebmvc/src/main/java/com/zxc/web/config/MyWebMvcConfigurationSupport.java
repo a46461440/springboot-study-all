@@ -22,7 +22,7 @@ public class MyWebMvcConfigurationSupport extends WebMvcConfigurationSupport {
         registry.addInterceptor(new HandlerInterceptor() {
             @Override
             public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-                System.out.print("在自定义configuration里执行");
+                System.out.println("在自定义configuration里执行");
                 return true;
             }
         });

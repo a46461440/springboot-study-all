@@ -1,6 +1,7 @@
 package com.zxc.web.config;
 
 import com.zxc.web.interceptor.TimeInterceptor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -40,7 +41,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
         registry.addInterceptor(new HandlerInterceptor() {
             @Override
             public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-                System.out.print("拦截中...");
+                System.out.println("拦截中...");
                 return true;
             }
         });

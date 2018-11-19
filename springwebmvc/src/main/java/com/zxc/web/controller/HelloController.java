@@ -1,11 +1,13 @@
 package com.zxc.web.controller;
 
+import com.zxc.web.annotation.InjectSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@InjectSession
 public class HelloController {
 
     /**
@@ -16,8 +18,10 @@ public class HelloController {
      * @return {@link org.springframework.web.servlet.ModelAndView}
      */
     @RequestMapping("/welcome")
-    public ModelAndView index(String name, Model model) {
-        model.addAttribute("message", "hello");
+    public ModelAndView index(@RequestParam int value,  Model model) {
+//        model.addAttribute("acceptLanguage", acceptLanguage);
+//        model.addAttribute("jSessionId", jSessionId);
+//        model.addAttribute("message", "hello");
         return new ModelAndView("index");
     }
 

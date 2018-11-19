@@ -38,7 +38,7 @@ public class TimeInterceptor implements HandlerInterceptor {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         String methodName = handlerMethod.getMethod().getName();
         String beanName = handlerMethod.getBean().getClass().getName();
-        System.out.print(beanName+"."+methodName +
+        System.out.println(beanName+"."+methodName +
                 "方法执行耗时" + String.valueOf(System.currentTimeMillis() - startTime.get()));
     }
 }
