@@ -10,6 +10,7 @@
         <module>autoconfigure</module>
         <module>springapplication</module>
         <module>springwebmvc</module>
+        <module>springboot-webmvc</module>
     </modules>
     <packaging>pom</packaging>
 
