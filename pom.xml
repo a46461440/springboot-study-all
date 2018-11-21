@@ -11,6 +11,7 @@
         <module>springapplication</module>
         <module>springwebmvc</module>
         <module>springboot-webmvc</module>
+        <module>springboot-view</module>
     </modules>
     <packaging>pom</packaging>
 

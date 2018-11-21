@@ -24,17 +24,17 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2018-11-19 14:22
  **/
 @Configuration
-//@EnableWebMvc
+@EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer{
 
-//    @Bean
-//    public ViewResolver viewResolver() {
-//        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
-//        internalResourceViewResolver.setPrefix("/WEB-INF/");
-//        internalResourceViewResolver.setSuffix(".jsp");
-//        internalResourceViewResolver.setViewClass(JstlView.class);
-//        return internalResourceViewResolver;
-//    }
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+        internalResourceViewResolver.setPrefix("/WEB-INF/");
+        internalResourceViewResolver.setSuffix(".jsp");
+        internalResourceViewResolver.setViewClass(JstlView.class);
+        return internalResourceViewResolver;
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
