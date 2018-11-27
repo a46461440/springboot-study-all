@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sprinbgboot-rest</artifactId>
+    <artifactId>springboot-rest</artifactId>
 
     <dependencies>
 
@@ -45,4 +45,5 @@
             <version>${jstl.version}</version>
         </dependency>
     </dependencies>
+
 </project>

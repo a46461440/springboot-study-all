@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
  * {@link RestController}
  *
  * @author Zhou RunMing
@@ -15,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
 
     @GetMapping("/hello-world")
-    public String helloWorld(@RequestParam(required = false) String message) {
-        return "hello world:" + message;
+    public String helloWorld(@RequestParam(required = false) String message, String name) {
+        return "hello world:" + name + ":" + message;
     }
 
 }
