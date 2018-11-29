@@ -2,8 +2,10 @@ package com.zxc.normal.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 /**
  * @author Zhou RunMing
@@ -20,6 +22,16 @@ public class Test {
     }
 
     public static class Car {
+
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
 
         public static int compareCar(Car car1, Car car2) {
             return car2.hashCode() - car1.hashCode();
@@ -42,5 +54,18 @@ public class Test {
         }
     }
 
+    @org.junit.Test
+    public void testStream() {
+        Car car1 = new Car();
+        car1.setName("zxc");
+        Car car2 = new Car();
+        car2.setName("zxm");
+        Collection<Car> list = Arrays.asList(car1, car2);
+        list.stream()
+                .filter(e -> e.getName().equals("zxc"))
+        .forEach(e -> e.setName("ok"));
+        System.out.println(car1.getName());
+        System.out.println(car2.getName());
+    }
 
 }

@@ -26,6 +26,12 @@
             <artifactId>javamelody-core</artifactId>
             <version>1.65.0</version>
         </dependency>
+        <!--测试模块-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
