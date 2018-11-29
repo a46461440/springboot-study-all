@@ -14,8 +14,8 @@ import java.util.Properties;
  * @author Zhou RunMing
  * @Date 2018-11-28
  */
-@RestController
-//@Controller
+//@RestController
+@Controller
 public class PropertiesRestController {
 
     @PostMapping(value = "/add/properties"

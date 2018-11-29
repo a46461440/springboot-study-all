@@ -24,6 +24,7 @@ import java.util.Properties;
 public class PropertiesHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
     public boolean supportsParameter(MethodParameter methodParameter) {
+        //判断是否匹配
         return methodParameter.getParameterType() == Properties.class;
     }
 
