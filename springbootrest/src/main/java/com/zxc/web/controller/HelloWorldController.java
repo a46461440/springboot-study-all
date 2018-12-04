@@ -26,7 +26,7 @@ public class HelloWorldController {
         return modelAndView;
     }
 
-    @CrossOrigin("*")
+//    @CrossOrigin("*")
     @GetMapping("/hello")
     public String returnSomething() {
         return "hello";

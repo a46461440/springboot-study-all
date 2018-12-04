@@ -3,7 +3,9 @@
 <head>
     <title>CORS 示例</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>-->
+    <!--<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
 </head>
 <body>
 <div id="message"></div>
@@ -15,7 +17,7 @@ $(document).ready(function(){
      $.get( "http://api.rest.org:8080/hello", function( data ) {
                 alert( data );
                 $( "#message" ).html( data );
-        });
+     });
 });
 </script>
 

@@ -57,7 +57,7 @@ public class WebMvcConfigurerConfig implements WebMvcConfigurer{
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("*").allowedMethods("GET");
+        registry.addMapping("/**").allowedMethods("GET");
     }
 
     @Override

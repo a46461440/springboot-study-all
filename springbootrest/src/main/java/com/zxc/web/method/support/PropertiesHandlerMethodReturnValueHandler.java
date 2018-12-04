@@ -13,7 +13,10 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.nio.charset.Charset;
 import java.util.Properties;
 
@@ -34,17 +37,29 @@ public class PropertiesHandlerMethodReturnValueHandler implements HandlerMethodR
     public void handleReturnValue(@Nullable Object o, MethodParameter methodParameter,
                                   ModelAndViewContainer modelAndViewContainer,
                                   NativeWebRequest nativeWebRequest) throws Exception {
-        ServletWebRequest servletWebRequest = (ServletWebRequest) nativeWebRequest;
-        HttpServletRequest request = servletWebRequest.getRequest();
-        HttpServletResponse response = servletWebRequest.getResponse();
+        HttpServletRequest request = (HttpServletRequest) nativeWebRequest.getNativeRequest();
+        HttpServletResponse response = (HttpServletResponse) nativeWebRequest.getNativeResponse();
+//        ServletWebRequest servletWebRequest = (ServletWebRequest) nativeWebRequest;
+//        HttpServletRequest request = servletWebRequest.getRequest();
+//        HttpServletResponse response = servletWebRequest.getResponse();
         String contentType = request.getHeader("Content-Type");
         MediaType mediaType = MediaType.parseMediaType(contentType);
         Charset charset = mediaType.getCharset();
         charset = charset == null ? Charset.forName("UTF-8") : charset;
         HttpOutputMessage outputMessage = new ServletServerHttpResponse(response);
-        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputMessage.getBody(), charset);
+        Writer outputStreamWriter = new OutputStreamWriter(outputMessage.getBody(), charset);
         Properties properties = (Properties) o;
-        properties.store(outputStreamWriter, "From PropertiesHandlerMethodReturnValueHandler");
+//        properties.store(outputStreamWriter, "From PropertiesHandlerMethodReturnValueHandler");
+        BufferedWriter finalOutputStreamWriter = outputStreamWriter instanceof BufferedWriter ? (BufferedWriter)outputStreamWriter : new BufferedWriter(outputStreamWriter);;
+        properties.entrySet().stream().forEach(entry -> {
+            try {
+                finalOutputStreamWriter.write(entry.getKey()+":"+entry.getValue());
+                finalOutputStreamWriter.newLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        finalOutputStreamWriter.flush();
         //告知SpringMvc当前请求已经完毕
         modelAndViewContainer.setRequestHandled(true);
     }
