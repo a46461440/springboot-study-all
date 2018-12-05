@@ -6,10 +6,12 @@
         <artifactId>demo</artifactId>
         <groupId>com.springboot</groupId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-boot-servlet</artifactId>
+    <packaging>war</packaging>
 
     <!--引用spring-servlet作为子模块-->
     <dependencies>
@@ -17,12 +19,23 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <!--<exclusion>-->
+                    <!--<groupId>org.springframework.boot</groupId>-->
+                    <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+                <!--</exclusion>-->
+                <exclusion>
+                    <groupId>org.hibernate.validator</groupId>
+                    <artifactId>hibernate-validator</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>spring-servlet</artifactId>
             <version>${project.version}</version>
+            <!--<type>war</type>-->
         </dependency>
     </dependencies>
 
