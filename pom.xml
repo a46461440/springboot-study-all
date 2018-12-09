@@ -16,6 +16,8 @@
         <module>spring-servlet</module>
         <module>spring-boot-servlet</module>
         <module>spring-reactive</module>
+        <module>springboot-webflux</module>
+        <module>externalized-configuration</module>
     </modules>
     <packaging>pom</packaging>
 
